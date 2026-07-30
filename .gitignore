@@ -1,0 +1,48 @@
+
+# FreeCAD
+*.FCBak
+
+# Temporary files
+tmp/*
+!tmp/.gitkeep
+
+
+
+
+
+
+
+
+
+# This section is auto generated Manual ignores can be added above this line. Do not remove this comment.
+
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,freecad
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,freecad
+
+### FreeCad ###
+*.pyc
+*.fcstd1
+*.FCStd1
+*.fcstd2
+*.FCStd2
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,freecad
