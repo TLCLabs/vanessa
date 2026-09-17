@@ -5,6 +5,8 @@
 # Temporary files
 tmp/*
 !tmp/.gitkeep
+scratch/*
+!scratch/.gitkeep
 
 
 
