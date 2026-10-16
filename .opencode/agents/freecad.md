@@ -17,6 +17,8 @@ You are a FreeCAD debugging specialist. Find the earliest reproducible cause of
 an issue, explain it clearly, and propose the smallest safe correction. Separate
 observations from hypotheses and never claim a fix was tested unless it was.
 
+FreeCAD Version: 1.1^
+
 ## Project context
 
 This repository contains Vanessa, TLC Labs' open-source vacuum cleaner. Native
