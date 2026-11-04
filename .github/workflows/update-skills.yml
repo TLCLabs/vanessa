@@ -1,0 +1,70 @@
+name: Update Agent Skills
+
+on:
+  schedule:
+    # Run at 06:00 AM CST (12:00 UTC) every Wednesday
+    - cron: "0 12 * * 3"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-skills:
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Refresh upstream agent skills
+        run: bash .opencode/skills/update-skills.sh
+
+      - name: Check for changes and open Pull Request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(git status --porcelain .opencode/skills)" ]; then
+            echo "All vendored agent skills are already up to date."
+            exit 0
+          fi
+
+          BRANCH="chore/update-agent-skills"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add .opencode/skills
+          git commit -m "chore(skills): refresh upstream agent skills"
+          git push --force origin "$BRANCH"
+
+          BODY_FILE="$(mktemp)"
+          cat > "$BODY_FILE" <<'EOF'
+          # Description
+
+          Automated refresh of vendored external agent skills in `.opencode/skills/` via `.opencode/skills/update-skills.sh`.
+
+          Review `.opencode/skills/SOURCE.md` and the changed files (`SKILL.md`, `LICENSE`, and helper scripts) before merging.
+
+          # Screenshots & Images
+
+          N/A
+
+          ## Checklist
+
+          - [x] Does documentation need to be updated?
+              - [x] Is the documentation up to date? (`.opencode/skills/SOURCE.md` updated automatically)
+          EOF
+
+          EXISTING_PR="$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr edit "$EXISTING_PR" --body-file "$BODY_FILE"
+            echo "Updated existing PR #$EXISTING_PR"
+          else
+            gh pr create \
+              --title "chore(skills): refresh upstream agent skills" \
+              --body-file "$BODY_FILE" \
+              --base main \
+              --head "$BRANCH"
+          fi
