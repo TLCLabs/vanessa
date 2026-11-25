@@ -8,7 +8,7 @@ These skills are vendored from upstream open-source repositories so they work ou
 
 ### 1. FreeCAD Scripts (`github/awesome-copilot`)
 - Repository: [`https://github.com/github/awesome-copilot`](https://github.com/github/awesome-copilot)
-- Source revision: [`7e408815ddcb64889a3683799a85399331cfd4ef`](https://github.com/github/awesome-copilot/tree/7e408815ddcb64889a3683799a85399331cfd4ef/skills/freecad-scripts)
+- Source revision: [`93fc8b9ee3ef56b9b5e7261e6ce92d314cb2c1cf`](https://github.com/github/awesome-copilot/tree/93fc8b9ee3ef56b9b5e7261e6ce92d314cb2c1cf/skills/freecad-scripts)
 - Installed directory: `freecad-scripts/`
 - License: MIT (reproduced in `freecad-scripts/LICENSE`)
 
@@ -20,7 +20,7 @@ These skills are vendored from upstream open-source repositories so they work ou
 
 ### 3. Agentic KiCad Skills (`IxTechCrypto/kicad-skills`)
 - Repository: [`https://github.com/IxTechCrypto/kicad-skills`](https://github.com/IxTechCrypto/kicad-skills)
-- Source revision: [`0a6f948efb4c861b10f9f3103db21a4460c3f1b8`](https://github.com/IxTechCrypto/kicad-skills/tree/0a6f948efb4c861b10f9f3103db21a4460c3f1b8)
+- Source revision: [`f187be5cc48ae8f5fcb48d21591500f1bf2a4046`](https://github.com/IxTechCrypto/kicad-skills/tree/f187be5cc48ae8f5fcb48d21591500f1bf2a4046)
 - Installed directories: `grill-me/`, `kicad-10-workflow/`, `kicad-core/`, `kicad-highcurrent/`, `kicad-highspeed/`, `kicad-newpart/`, `kicad-rf-lowpower/`, `pcb-routing-best-practices/`
 - License: MIT (reproduced in each skill directory's `LICENSE` and `ATTRIBUTION.md`)
 
